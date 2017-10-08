@@ -8,8 +8,8 @@ import com.kpiega.daggerscoopingsubproject.di.DaggerAppComponent
 import com.kpiega.sub_activities.SubMainActivity
 import com.kpiega.sub_activities.module.SubProjectModule
 import com.kpiega.sub_interface.SubProjectInterface
-import com.kpiega.sub_interface.app.SubProjectApplication
-import com.kpiega.sub_interface.app.SubProjectPreference
+import com.kpiega.sub_interface.interfaces.SubProjectApplication
+import com.kpiega.sub_interface.interfaces.SubProjectPreference
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasActivityInjector
