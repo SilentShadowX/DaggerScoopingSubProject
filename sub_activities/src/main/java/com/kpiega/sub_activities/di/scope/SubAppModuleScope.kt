@@ -4,4 +4,4 @@ import javax.inject.Scope
 
 @Scope
 @Retention
-annotation class ActivityModuleScope
+annotation class SubAppModuleScope

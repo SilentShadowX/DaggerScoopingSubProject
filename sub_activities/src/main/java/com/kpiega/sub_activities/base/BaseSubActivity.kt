@@ -1,23 +1,41 @@
 package com.kpiega.sub_activities.base
 
 import android.os.Bundle
+import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
-import com.kpiega.sub_activities.di.ActivityModuleComponent
-import com.kpiega.sub_activities.di.DaggerActivityModuleComponent
-import com.kpiega.sub_activities.module.SubProjectModule
-import com.kpiega.sub_interface.di.InterComponentInterface
+import com.kpiega.sub_activities.di.utils.ModuleInjection
+import com.kpiega.sub_activities.manager.ModuleManager
+import dagger.android.AndroidInjector
+import dagger.android.DispatchingAndroidInjector
+import dagger.android.HasActivityInjector
+import dagger.android.support.HasSupportFragmentInjector
+import javax.inject.Inject
 
-abstract class BaseSubActivity: AppCompatActivity() {
+abstract class BaseSubActivity: AppCompatActivity(), HasSupportFragmentInjector {
 
-    lateinit var activityComponent: ActivityModuleComponent
+    @Inject lateinit var injector: DispatchingAndroidInjector<Fragment>
+
+    var moduleManager: ModuleManager? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        if(moduleManager == null) {
+            moduleManager = ModuleManager().apply {
+                this.createModuleSession()
+            }
+        }
+
+        androidInject()
+
         super.onCreate(savedInstanceState)
+    }
 
-        activityComponent = DaggerActivityModuleComponent.builder()
-                .appComponent(SubProjectModule.appComponent as InterComponentInterface)
-                .build()
+    protected open fun androidInject() {
+        ModuleInjection.inject(this, moduleManager as HasActivityInjector)
+    }
 
-        print("test")
+    override fun supportFragmentInjector(): AndroidInjector<Fragment> {
+        return injector
     }
 }
+
+

@@ -1,5 +1,7 @@
 package com.kpiega.sub_interface.di
 
+import android.app.Application
+
 interface InterComponentInterface {
-//    fun <T: InterComponentInterface> getComponent(): T
+    val application: Application
 }
