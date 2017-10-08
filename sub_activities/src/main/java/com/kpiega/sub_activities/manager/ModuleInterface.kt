@@ -9,6 +9,8 @@ import dagger.android.HasActivityInjector
 interface ModuleInterface: HasActivityInjector {
 
     fun startModuleMainActivity(activity: Activity)
+
+    fun isSessionAvailable(): Boolean
     fun createSession(appComponent: InterComponentInterface, network: ModuleRequstsNetwork, preferences: ModulePreference)
     fun eraseSession()
 }
