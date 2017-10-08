@@ -10,5 +10,5 @@ import dagger.android.ContributesAndroidInjector
 abstract class SubProjectActivityBindingModule {
 
     @ContributesAndroidInjector
-    abstract fun subMainActivity(): StartActivity
+    abstract fun startActivity(): StartActivity
 }

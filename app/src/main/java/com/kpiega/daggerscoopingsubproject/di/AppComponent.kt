@@ -22,9 +22,10 @@ interface AppComponent : AndroidInjector<DaggerApplication>, InterComponentInter
     @Component.Builder
     interface Builder {
 
+        fun build(): AppComponent
+
         @BindsInstance
         fun application(app: Application): Builder
-        fun build(): AppComponent
     }
 
     fun inject(subScopeApp: SubScopeApp)

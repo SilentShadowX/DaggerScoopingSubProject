@@ -1,4 +1,4 @@
-package com.kpiega.sub_activities.di
+package com.kpiega.sub_activities.di.module
 
 import com.kpiega.sub_activities.SubMainActivity
 import dagger.Module

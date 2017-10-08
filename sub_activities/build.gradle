@@ -43,6 +43,10 @@ dependencies {
     implementation "com.google.dagger:dagger-android:2.11"
     implementation "com.google.dagger:dagger-android-support:2.11"
     kapt "com.google.dagger:dagger-android-processor:2.11"
+
+    implementation "io.reactivex.rxjava2:rxjava:$rootProject.ext.rxjava2Version"
+    implementation "io.reactivex.rxjava2:rxandroid:$rootProject.ext.rxandroidVersion"
+    implementation "io.reactivex.rxjava2:rxkotlin:$rootProject.ext.rxKotlinVersion"
 }
 repositories {
     mavenCentral()

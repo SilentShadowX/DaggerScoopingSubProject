@@ -1,7 +1,9 @@
 package com.kpiega.sub_activities.di
 
-import com.kpiega.sub_activities.di.module.NetworkModule
+import com.kpiega.sub_activities.di.module.NetworkRepositoryModule
+import com.kpiega.sub_activities.di.module.SubAppActivityModule
 import com.kpiega.sub_activities.di.scope.SubAppModuleScope
+import com.kpiega.sub_activities.manager.ModuleManager
 import com.kpiega.sub_interface.di.InterComponentInterface
 import com.kpiega.sub_interface.interfaces.ModulePreference
 import com.kpiega.sub_interface.interfaces.ModuleRequstsNetwork
@@ -18,7 +20,8 @@ import dagger.android.support.DaggerApplication
         ),
         modules = arrayOf(
                 AndroidSupportInjectionModule::class,
-                SubAppActivityModule::class
+                SubAppActivityModule::class,
+                NetworkRepositoryModule::class
         )
 )
 interface SecondModuleComponent : AndroidInjector<DaggerApplication> {
@@ -37,6 +40,7 @@ interface SecondModuleComponent : AndroidInjector<DaggerApplication> {
         fun buildPreference(obj: ModulePreference): Builder
     }
 
+    fun inject(manager: ModuleManager)
 }
 
 
