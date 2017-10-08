@@ -13,7 +13,7 @@ class StartActivity : DaggerAppCompatActivity() {
         setContentView(R.layout.activity_start)
 
         startSubProject.setOnClickListener {
-            SubProjectModule.redirect?.startSubProjectActivity(this)
+//            SubProjectModule.redirect?.startSubProjectActivity(this)
             finish()
         }
     }
